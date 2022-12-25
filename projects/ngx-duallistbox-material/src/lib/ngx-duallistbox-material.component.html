@@ -1,0 +1,82 @@
+<div class="ngx-duallistbox-main-holder-cls">
+  <mat-card class="ngx-duallistbox-list-holder-cls">
+    <mat-card-header class="ngx-duallistbox-search-holder-cls">
+      <mat-checkbox
+        class="ngx-duallistbox-select-all-checkbox-cls"
+        [(ngModel)]="checked"
+      ></mat-checkbox>
+      <mat-form-field appearance="outline" class="ngx-duallistbox-search-cls">
+        <input type="text" matInput />
+        <mat-icon matSuffix>search</mat-icon>
+      </mat-form-field>
+    </mat-card-header>
+    <mat-card-content class="ngx-duallistbox-content-list-holder-cls">
+      <mat-selection-list>
+        <ng-container *ngFor="let val of libDualListData">
+          <mat-list-option
+            *ngIf="!val.selected"
+            [checkboxPosition]="'before'"
+            >{{ val.label }}</mat-list-option
+          >
+        </ng-container>
+      </mat-selection-list>
+    </mat-card-content>
+    <mat-card-actions>
+      <mat-card-title>0 item selected</mat-card-title>
+    </mat-card-actions>
+  </mat-card>
+
+  <div class="ngx-duallistbox-icon-holder-cls">
+    <mat-icon
+      (click)="libMoveAllElement('right')"
+      class="ngx-duallistbox-icon-cls"
+      aria-hidden="true"
+      fontIcon="keyboard_double_arrow_right"
+    ></mat-icon>
+    <mat-icon
+      class="ngx-duallistbox-icon-cls"
+      aria-hidden="true"
+      fontIcon="chevron_right"
+    ></mat-icon>
+
+    <mat-icon
+      class="ngx-duallistbox-icon-cls"
+      aria-hidden="true"
+      fontIcon="chevron_left"
+    ></mat-icon>
+    <mat-icon
+      (click)="libMoveAllElement('left')"
+      class="ngx-duallistbox-icon-cls"
+      aria-hidden="true"
+      fontIcon="keyboard_double_arrow_left"
+    ></mat-icon>
+  </div>
+
+  <mat-card class="ngx-duallistbox-list-holder-cls">
+    <mat-card-header>
+      <mat-checkbox
+        class="ngx-duallistbox-select-all-checkbox-cls"
+        [(ngModel)]="checked"
+      ></mat-checkbox>
+      <mat-form-field
+        appearance="outline"
+        class="ngx-duallistbox-search-holder-cls"
+      >
+        <input type="text" matInput />
+        <mat-icon matSuffix>search</mat-icon>
+      </mat-form-field>
+    </mat-card-header>
+    <mat-card-content class="ngx-duallistbox-content-list-holder-cls">
+      <mat-selection-list>
+        <ng-container *ngFor="let val of libDualListData">
+          <mat-list-option *ngIf="val.selected" [checkboxPosition]="'before'">{{
+            val.label
+          }}</mat-list-option>
+        </ng-container>
+      </mat-selection-list>
+    </mat-card-content>
+    <mat-card-actions>
+      <mat-card-title>0 item selected</mat-card-title>
+    </mat-card-actions>
+  </mat-card>
+</div>

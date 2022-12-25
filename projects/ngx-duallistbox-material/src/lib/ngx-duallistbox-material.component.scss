@@ -1,0 +1,42 @@
+.ngx-duallistbox-main-holder-cls {
+  display: flex;
+  .ngx-duallistbox-list-holder-cls {
+    display: flex;
+    flex: 1;
+  }
+  .ngx-duallistbox-icon-holder-cls {
+    width: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+    align-items: center;
+    margin: 0 5px;
+    .ngx-duallistbox-icon-cls {
+      font-size: 30px;
+      width: 30px;
+      height: 30px;
+      cursor: pointer;
+    }
+  }
+  .ngx-duallistbox-search-holder-cls {
+    display: flex;
+    flex: 1;
+    box-shadow: 0px 15px 10px -20px #111;
+    .ngx-duallistbox-search-cls {
+      display: flex;
+      flex: 1;
+    }
+  }
+  .ngx-duallistbox-select-all-checkbox-cls {
+    display: flex;
+    height: 56px;
+  }
+  .ngx-duallistbox-content-list-holder-cls {
+    padding: 0 6px;
+    min-height: 361px;
+    max-height: 361px;
+    overflow-y: scroll;
+    box-shadow: 0px 15px 10px -20px #111;
+  }
+}
