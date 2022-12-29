@@ -1,3 +1,5 @@
 <lib-ngx-duallistbox-material
+  [dualListConfigData]="configData"
   [dualListData]="inputData"
+  (dualListEmitSelData)="getSelVal($event)"
 ></lib-ngx-duallistbox-material>

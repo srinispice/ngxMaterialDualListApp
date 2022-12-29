@@ -3,80 +3,129 @@
     <mat-card-header class="ngx-duallistbox-search-holder-cls">
       <mat-checkbox
         class="ngx-duallistbox-select-all-checkbox-cls"
-        [(ngModel)]="checked"
+        (click)="libSelectAll('left')"
+        [(ngModel)]="libSelAllLeft"
       ></mat-checkbox>
       <mat-form-field appearance="outline" class="ngx-duallistbox-search-cls">
-        <input type="text" matInput />
+        <input
+          autocomplete="off"
+          [(ngModel)]="libsrchTxtLeft"
+          (keyup)="libSrchDualList($event, 'left')"
+          type="text"
+          matInput
+        />
         <mat-icon matSuffix>search</mat-icon>
       </mat-form-field>
     </mat-card-header>
     <mat-card-content class="ngx-duallistbox-content-list-holder-cls">
-      <mat-selection-list>
+      <mat-selection-list #libLeftList>
         <ng-container *ngFor="let val of libDualListData">
-          <mat-list-option
-            *ngIf="!val.selected"
-            [checkboxPosition]="'before'"
-            >{{ val.label }}</mat-list-option
-          >
+          <ng-container *ngIf="!val.selected && val.libShowList">
+            <mat-list-option
+              id="libId{{ val.libId }}"
+              [selected]="val.libSelOpt || libSelLeftOpt"
+              (click)="libSelListData(val.libId, 'left')"
+              [checkboxPosition]="'before'"
+              >{{ val.label }}</mat-list-option
+            >
+          </ng-container>
         </ng-container>
       </mat-selection-list>
     </mat-card-content>
     <mat-card-actions>
-      <mat-card-title>0 item selected</mat-card-title>
+      <mat-card-title>{{ libSelLeftArr.length }} item selected</mat-card-title>
     </mat-card-actions>
   </mat-card>
 
   <div class="ngx-duallistbox-icon-holder-cls">
-    <mat-icon
+    <button
+      [disabled]="libIsMoveAllRightBtnDisable"
+      [ngClass]="libCheckAllBtnStatus()"
+      class="ngx-duallistbox-icon-btn-cls"
+      mat-icon-button
       (click)="libMoveAllElement('right')"
-      class="ngx-duallistbox-icon-cls"
-      aria-hidden="true"
-      fontIcon="keyboard_double_arrow_right"
-    ></mat-icon>
-    <mat-icon
-      class="ngx-duallistbox-icon-cls"
-      aria-hidden="true"
-      fontIcon="chevron_right"
-    ></mat-icon>
-
-    <mat-icon
-      class="ngx-duallistbox-icon-cls"
-      aria-hidden="true"
-      fontIcon="chevron_left"
-    ></mat-icon>
-    <mat-icon
+    >
+      <mat-icon
+        class="ngx-duallistbox-icon-cls"
+        aria-hidden="true"
+        fontIcon="keyboard_double_arrow_right"
+      ></mat-icon>
+    </button>
+    <button
+      [disabled]="!(libLeftList.selectedOptions.selected.length > 0)"
+      class="ngx-duallistbox-icon-btn-cls"
+      mat-icon-button
+      (click)="libMoveSelElement('right')"
+    >
+      <mat-icon
+        class="ngx-duallistbox-icon-cls"
+        aria-hidden="true"
+        fontIcon="chevron_right"
+      ></mat-icon>
+    </button>
+    <button
+      [disabled]="!(libRightList.selectedOptions.selected.length > 0)"
+      class="ngx-duallistbox-icon-btn-cls"
+      mat-icon-button
+      (click)="libMoveSelElement('left')"
+    >
+      <mat-icon
+        class="ngx-duallistbox-icon-cls"
+        aria-hidden="true"
+        fontIcon="chevron_left"
+      ></mat-icon>
+    </button>
+    <button
+      [disabled]="libIsMoveAllLeftBtnDisable"
+      class="ngx-duallistbox-icon-btn-cls"
+      mat-icon-button
       (click)="libMoveAllElement('left')"
-      class="ngx-duallistbox-icon-cls"
-      aria-hidden="true"
-      fontIcon="keyboard_double_arrow_left"
-    ></mat-icon>
+    >
+      <mat-icon
+        class="ngx-duallistbox-icon-cls"
+        aria-hidden="true"
+        fontIcon="keyboard_double_arrow_left"
+      ></mat-icon>
+    </button>
   </div>
 
   <mat-card class="ngx-duallistbox-list-holder-cls">
-    <mat-card-header>
+    <mat-card-header class="ngx-duallistbox-search-holder-cls">
       <mat-checkbox
         class="ngx-duallistbox-select-all-checkbox-cls"
-        [(ngModel)]="checked"
+        (click)="libSelectAll('right')"
+        [(ngModel)]="libSelAllRight"
       ></mat-checkbox>
-      <mat-form-field
-        appearance="outline"
-        class="ngx-duallistbox-search-holder-cls"
-      >
-        <input type="text" matInput />
+      <mat-form-field appearance="outline" class="ngx-duallistbox-search-cls">
+        <input
+          autocomplete="off"
+          [(ngModel)]="libsrchTxtRight"
+          (keyup)="libSrchDualList($event, 'right')"
+          type="text"
+          matInput
+        />
         <mat-icon matSuffix>search</mat-icon>
       </mat-form-field>
     </mat-card-header>
+
     <mat-card-content class="ngx-duallistbox-content-list-holder-cls">
-      <mat-selection-list>
+      <mat-selection-list #libRightList>
         <ng-container *ngFor="let val of libDualListData">
-          <mat-list-option *ngIf="val.selected" [checkboxPosition]="'before'">{{
-            val.label
-          }}</mat-list-option>
+          <ng-container *ngIf="val.selected && val.libShowList">
+            <mat-list-option
+              id="libId{{ val.libId }}"
+              [selected]="val.libSelOpt || libSelRightOpt"
+              (click)="libSelListData(val.libId, 'right')"
+              [checkboxPosition]="'before'"
+              >{{ val.label }}</mat-list-option
+            >
+          </ng-container>
         </ng-container>
       </mat-selection-list>
     </mat-card-content>
+
     <mat-card-actions>
-      <mat-card-title>0 item selected</mat-card-title>
+      <mat-card-title>{{ libSelRightArr.length }} item selected</mat-card-title>
     </mat-card-actions>
   </mat-card>
 </div>

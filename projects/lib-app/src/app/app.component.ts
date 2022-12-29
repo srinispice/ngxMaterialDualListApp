@@ -8,6 +8,8 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'libApp';
 
+  configData: any;
+
   inputData = [
     {
       label: 'Carole Cline',
@@ -180,4 +182,8 @@ export class AppComponent {
       value: { company: 'Arctiq', dob: '1989-03-25', roles: 'member' },
     },
   ];
+
+  getSelVal(data: any) {
+    console.log('data', data);
+  }
 }
