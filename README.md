@@ -2,7 +2,7 @@
 
 Simple dual list box component to use with your Angular 15 app, along with Angular Material.
 
-## [Demo]()
+## [Demo](#)
 
 ## Dependencies
 
@@ -49,12 +49,10 @@ export class AppModule {}
 Once the library is imported, you can use the components, directives and pipes in your Angular application:
 
 ```html
-<ngx-material-duallistbox
-  [items]="items"
-  [descProperty]="'description'"
-  [idProperty]="'id'"
->
-</ngx-material-duallistbox>
+<ngx-duallistbox-material
+  [dualListData]="inputData"
+  (dualListEmitSelData)="getSelVal($event)"
+></ngx-duallistbox-material>
 ```
 
 and then from your Angular `AppComponent`
@@ -69,8 +67,6 @@ import { Component } from "@angular/core";
 })
 export class AppComponent {
   title = "NgxDuallistboxMaterialLibApp";
-
-  configData: any;
 
   inputData = [
     {
