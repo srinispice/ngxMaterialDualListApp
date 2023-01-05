@@ -8,7 +8,7 @@ import {
 } from '@angular/core';
 
 @Component({
-  selector: 'lib-ngx-duallistbox-material',
+  selector: 'ngx-duallistbox-material',
   templateUrl: './ngx-duallistbox-material.component.html',
   styleUrls: ['./ngx-duallistbox-material.component.scss'],
 })

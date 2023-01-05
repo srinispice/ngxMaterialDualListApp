@@ -1,27 +1,97 @@
-# LibMainApp
+# ngx-duallistbox-material
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.0.4.
+Simple dual list box component to use with your Angular 15 app, along with Angular Material.
 
-## Development server
+## [Demo]()
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Dependencies
 
-## Code scaffolding
+You will need:
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- Angular 15 (Works with oder version as well)
+- Angular Material 15
 
-## Build
+## Installation
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+To install this library, run:
 
-## Running unit tests
+```bash
+$ npm i ngx-duallistbox-material
+```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+and then from your Angular `AppModule`:
 
-## Running end-to-end tests
+```typescript
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { NgxDuallistboxMaterialModule } from 'ngx-duallistbox-material';
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+import { AppComponent } from './app.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-## Further help
+@NgModule({
+  declarations: [AppComponent],
+  imports: [
+    BrowserModule,
+    BrowserAnimationsModule
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+     // Add the module in the impots
+    NgxDuallistboxMaterialModule
+
+  ],
+  providers: [],
+  bootstrap: [AppComponent],
+})
+export class AppModule {}
+
+```
+
+Once the library is imported, you can use the components, directives and pipes in your Angular application:
+
+```html
+<ngx-material-duallistbox
+  [items]="items"
+  [descProperty]="'description'"
+  [idProperty]="'id'"
+>
+</ngx-material-duallistbox>
+```
+
+and then from your Angular `AppComponent`
+
+```typescript
+import { Component } from "@angular/core";
+
+@Component({
+  selector: "app-root",
+  templateUrl: "./app.component.html",
+  styleUrls: ["./app.component.scss"],
+})
+export class AppComponent {
+  title = "NgxDuallistboxMaterialLibApp";
+
+  configData: any;
+
+  inputData = [
+    {
+      label: "Carole Cline",
+      selected: true,
+      value: { company: "Zoxy", dob: "1994-05-07", roles: "admin" },
+    },
+    {
+      label: "Manning Ferrell",
+      selected: true,
+      value: { company: "Kengen", dob: "1988-05-12", roles: "member" },
+    },
+    {
+      label: "Carver Mcmillan",
+      selected: false,
+      value: { company: "Nutralab", dob: "1990-08-31", roles: "owner" },
+    },
+  ];
+
+  getSelVal(data: any) {
+    console.log("data", data);
+  }
+}
+```
