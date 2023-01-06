@@ -1,6 +1,6 @@
 {
   "name": "ngx-duallistbox-material",
-  "version": "0.0.6",
+  "version": "0.1.1",
   "description": "Dual listbox component to use with your Angular 14 App with Angular Material that includes search, move, move all options",
   "keywords": [
     "ng",

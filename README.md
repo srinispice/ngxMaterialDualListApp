@@ -2,13 +2,13 @@
 
 Simple dual list box component to use with your Angular 15 app, along with Angular Material.
 
-## [Demo](#)
+## [Demo](https://srinivasanofficial.github.io/NgxDuallistboxMaterial/)
 
 ## Dependencies
 
 You will need:
 
-- Angular 15 (Works with oder version as well)
+- Angular 15 (Works with older version as well)
 - Angular Material 15
 
 ## Installation
@@ -91,3 +91,25 @@ export class AppComponent {
   }
 }
 ```
+
+## Input Attributes - dualListData - Json
+
+- **label** - String that must be shown to the user in the list
+- **value** - Can be anything which will be emitted when user selects the list data
+- **selected** - If the value is true, then the respective data will be shown in the right side and flase will be shown in the left side. By default the vlaue is false
+
+## Output Emit Funcntion - dualListEmitSelData - function
+
+- Emits the json which are selected true from the input Json.
+
+## Author
+
+- [@SrinivasanOfficial](https://github.com/orgs/SrinivasanOfficial)
+
+## Contributing
+
+I am very appreciate for your ideas, proposals and found bugs which you can leave in github issues. Thanks in advance!
+
+## License
+
+MIT

@@ -112,4 +112,4 @@ I am very appreciate for your ideas, proposals and found bugs which you can leav
 
 ## License
 
-MIT © [Blandi Alcani](mailto:blandius@gmail.com)
+MIT
