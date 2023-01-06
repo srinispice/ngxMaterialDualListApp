@@ -1,6 +1,6 @@
 {
   "name": "ngx-duallistbox-material",
-  "version": "0.0.1",
+  "version": "0.0.6",
   "description": "Dual listbox component to use with your Angular 14 App with Angular Material that includes search, move, move all options",
   "keywords": [
     "ng",
@@ -10,6 +10,10 @@
     "ngx-duallistbox-material",
     "material"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/srinispice/ngxMaterialDualListApp"
+  },
   "author": "@SrinivasanOfficial <https://github.com/orgs/SrinivasanOfficial>",
   "peerDependencies": {
     "@angular/common": "^15.0.0",

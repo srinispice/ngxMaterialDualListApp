@@ -39,7 +39,6 @@ export class NgxDuallistboxMaterialComponent implements OnInit {
 
   ngOnInit() {
     this.libUpdateInitData();
-    // console.log('dualListData', this.libDualListData);
   }
 
   ngAfterContentChecked() {
@@ -55,7 +54,6 @@ export class NgxDuallistboxMaterialComponent implements OnInit {
       val.checked = false;
       val.libSelOpt = false;
     });
-    console.log('libDualListData', this.libDualListData);
   }
 
   libMoveAllElement(moveDirection: string) {
@@ -154,9 +152,6 @@ export class NgxDuallistboxMaterialComponent implements OnInit {
         oprName = 'add';
         this.libSelLeftArr.push(libId);
       }
-
-      //   console.log(this.libDualListData);
-      console.log(this.libSelLeftArr);
     }
 
     if (listPos === 'right') {
@@ -168,7 +163,6 @@ export class NgxDuallistboxMaterialComponent implements OnInit {
         oprName = 'add';
         this.libSelRightArr.push(libId);
       }
-      console.log(this.libSelRightArr);
     }
     let libSelCheckLeftCount = 0;
     let libSelCheckRightCount = 0;
@@ -247,6 +241,5 @@ export class NgxDuallistboxMaterialComponent implements OnInit {
       }
     });
     this.dualListEmitSelData.emit(this.libSelListArr);
-    console.log('libSelListArr', this.libSelListArr);
   }
 }
