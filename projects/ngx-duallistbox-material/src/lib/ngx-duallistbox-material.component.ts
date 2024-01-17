@@ -17,6 +17,9 @@ export class NgxDuallistboxMaterialComponent implements OnInit {
 
   @Input() dualListConfigData: any;
   @Input() dualListData: any;
+  @Input() selectedLabel: string = 'item selected';
+  @Input() leftLabel: string = 'Availables';
+  @Input() rightLabel: string = 'Selected';
   @Output() dualListEmitSelData: EventEmitter<any> = new EventEmitter();
 
   libDualListData: any;
